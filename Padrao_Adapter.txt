@@ -1,0 +1,82 @@
+Padrão Adapter:
+
+Padrão estrutural que permite que classes com interfaces incompatíveis trabalhem juntas,
+convertendo a interface de uma classe (Adaptee) em outra esperada pelo cliente (Target).
+
+Participantes:
+
+Target (interface esperada pelo cliente)
+Adaptee (classe existente/legada)
+Adapter (implementa Target e adapta Adaptee)
+Client (usa Target, sem conhecer o Adaptee)
+
+interface Target {
+	void print();
+}
+
+class Adaptee {
+	void oldPrint() {}
+}
+
+class Adapter implements Target {
+	Adaptee adaptee;
+
+	Adapter(Adaptee adaptee) {
+		this.adaptee = adaptee;
+	}
+
+	void print() {
+		adaptee.oldPrint();
+	}
+}
+
+Tipos:
+
+Object Adapter (composição, mais flexível)
+Class Adapter (herança, mais acoplado e limitado em linguagens sem herança múltipla)
+
+Principais padrões confundidos com Adapter:
+- Decorator (muito comum)
+Por que confunde?
+  Ambos fazem wrapping
+  Ambos usam composição
+  Ambos delegam chamadas
+
+- Proxy (o MAIS confundido em código real)
+Por que confunde?
+  Mesma interface
+  Encapsula outro objeto
+  Delega chamadas
+
+- Bridge
+Por que confunde?
+  Usa composição
+  Possui abstração e implementação
+  Delegação de chamadas
+
+- Facade
+Por que confunde?
+  Encapsula complexidade
+  Simplifica uso
+  Cria nova interface
+
+- Wrapper comum (sem padrão)
+Por que confunde?
+  Encapsula objeto
+  Delega chamadas
+  Pode ter métodos semelhantes
+
+Se você vir:
+  - Interface diferente
+  - Método sendo traduzido
+  - Adaptação de contrato
+
+=> Pense em Adapter
+
+Mas valide:
+  - Mesma interface? → Decorator / Proxy
+  - Só delegação? → pode não ser padrão
+  - Simplifica múltiplas classes? → Facade
+  - Separa dimensões? → Bridge
+
+

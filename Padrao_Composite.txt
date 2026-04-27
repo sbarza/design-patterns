@@ -1,0 +1,107 @@
+Padrão Composite
+
+Padrão estrutural que compõe objetos em estruturas de árvore para representar hierarquias parte-todo, permitindo que clientes tratem objetos individuais e composições de forma uniforme.
+
+Existem duas variações comuns de implementação:
+- Transparent: interface comum para todos (pode gerar operações inválidas)
+- Safe: interface restrita (mais seguro, menos uniforme)
+
+Trade-off:
+- Transparent: mais simples para o cliente, mas pode permitir operações inválidas (ex: add() em Leaf)
+- Safe: mais seguro, mas menos uniforme (cliente precisa saber com quem está lidando)
+
+Participantes:
+
+- Component (Interface comum para todos os objetos)
+- Leaf (Objeto individual, sem filhos)
+- Composite (Objeto que contém filhos)
+- Client (usa tudo via Component)
+
+Ideia central:
+- Estrutura hierárquica (árvore)
+- Operações propagadas recursivamente
+- Tratamento uniforme via Component
+
+interface Component {
+	void operation();
+}
+
+class Leaf implements Component {
+	public void operation() {
+		// implementação simples
+	}
+}
+
+class Composite implements Component {
+	List<Component> children = new ArrayList<>();
+
+	public void add(Component component) {
+		children.add(component);
+	}
+
+	public void remove(Component component) {
+		children.remove(component);
+	}
+
+	public void operation() {
+		for (Component child : children) {
+			child.operation();
+		}
+	}
+}
+
+Ideia central:
+	Estrutura em árvore
+	Uso de recursão
+	Cliente trata tudo como Component
+
+Ou seja:
+	Leaf e Composite são usados da mesma forma
+
+
+Principais padrões confundidos com Composite:
+- Decorator
+  Mesma interface (Component)
+  Composição (wrapper)
+  Delegação de chamadas
+
+- Proxy
+- Adapter
+- Bridge
+
+Se você vir:
+- Estrutura recursiva
+- Lista de objetos do mesmo tipo
+- Operação propagada
+=> Pense em Composite
+
+Mas valide:
+- Adiciona comportamento? → Decorator
+- Controla acesso? → Proxy
+- Converte interface? → Adapter
+- Separa dimensões? → Bridge
+
+“Composite parece vários padrões estruturalmente, mas só ele modela hierarquias parte-todo com recursão.”
+
+API Java:
+- 1. Swing / AWT (o exemplo clássico)
+  Principal: java.awt.Component + java.awt.Container
+
+JPanel panel = new JPanel();
+panel.add(new JButton("OK"));
+panel.add(new JLabel("Name"));
+
+| Papel     | Classe                    |
+| --------- | --------------------------|
+| Component | Component                 |
+| Leaf      | JButton, JLabel           |
+| Composite | Container, JPanel, JFrame |
+
+- Por que é Composite?
+  Container contém vários Component
+  Todos são tratados como Component
+  Operações propagam na hierarquia (ex: paint())
+
+
+
+

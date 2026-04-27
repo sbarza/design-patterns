@@ -1,0 +1,138 @@
+Padrão Decorator
+
+Padrão estrutural que permite adicionar responsabilidades (comportamentos) a objetos dinamicamente, sem alterar sua classe original, utilizando composição e encadeamento.
+
+Existem duas variações comuns de implementação:
+- Transparent: mantém exatamente a mesma interface do Component
+- Semi-transparent: adiciona métodos extras nos Decorators (menos comum, menos puro)
+
+Trade-offs
+Pros:
+- Alta flexibilidade: combina comportamentos dinamicamente
+- Evita explosão de subclasses
+
+Cons
+- Pode aumentar a complexidade (muitos objetos encadeados)
+- Ordem dos decorators importa
+
+Participantes:
+- Component (Interface comum)
+- Concrete Component (Implementação base)
+- Decorator (Classe abstrata que mantém referência ao Component)
+- Concrete Decorator (Adiciona comportamento)
+- Client (usa tudo via Component)
+
+Ideia central:
+- Mesmo tipo (mesma interface)
+- Encadeamento de objetos (wrapping)
+- Delegação + comportamento adicional
+- Composição recursiva (cadeia, não árvore)
+
+Estrutura Básica:
+interface Component {
+    void operation();
+}
+
+class ConcreteComponent implements Component {
+    public void operation() {
+        System.out.println("Base behavior");
+    }
+}
+
+abstract class Decorator implements Component {
+    protected Component component;
+
+    public Decorator(Component component) {
+        this.component = component;
+    }
+}
+
+class ConcreteDecorator extends Decorator {
+
+    public ConcreteDecorator(Component component) {
+        super(component);
+    }
+
+    public void operation() {
+        // comportamento adicional
+        System.out.println("Before");
+
+        component.operation();
+
+        // comportamento adicional
+        System.out.println("After");
+    }
+}
+
+Component c =
+    new A(
+        new B(
+            new ConcreteComponent()
+        )
+    );
+
+A → B → ConcreteComponent → B → A
+
+“Decorator adiciona comportamento sem mudar a interface e sem criar subclasses.”
+
+Principais padrões confundidos com Decorator:
+
+- Proxy (o MAIS confundido)
+Exemplo mental
+Decorator → “vou adicionar logging”
+Proxy → “vou controlar acesso / lazy load / segurança”
+
+- Adapter
+Regra de ouro
+Se mudou o contrato → Adapter
+Se manteve o contrato → Decorator
+
+- Composite
+Decorator = empilhamento
+Composite = hierarquia
+
+- Bridge (menos comum, mas possível)
+
+
+Se você vir:
+- mesma interface
+- wrapping
+- comportamento extra
+
+=> pense primeiro em Decorator
+
+Mas valide:
+- está controlando acesso? → Proxy
+- mudou interface? → Adapter
+- é árvore? → Composite
+- separa dimensões? → Bridge
+
+
+API Java:
+O melhor exemplo de Decorator pattern no Java é o pacote I/O (java.io)
+
+InputStream in =
+    new BufferedInputStream(
+        new FileInputStream("file.txt"));
+
+Mapeamento para Decorator
+
+| Papel             | Classe              |
+| ----------------- | --------------------|
+| Component         | InputStream         |
+| ConcreteComponent | FileInputStream     |
+| Decorator         | FilterInputStream   |
+| ConcreteDecorator | BufferedInputStream |
+
+
+Os exemplos mais clássicos no Java são:
+
+BufferedInputStream
+BufferedReader
+DataInputStream
+GZIPInputStream
+CipherInputStream
+
+
+
+

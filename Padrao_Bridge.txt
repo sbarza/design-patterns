@@ -1,0 +1,130 @@
+Padrão Bridge:
+
+Padrão estrutural que separa uma abstração de sua implementação, permitindo que ambas evoluam independentemente e evitando a explosão de classes causada por combinações via herança.
+
+Participantes:
+
+- Abstraction (define a interface de alto nível)
+- Refined Abstraction (variações da abstração)
+- Implementor (interface de implementação)
+- Concrete Implementor (implementações concretas)
+
+Esse é o coração do padrão:
+
+* Pode trocar o Implementor em runtime
+* Pode criar novas abstrações sem mexer nas implementações
+* E vice-versa
+
+Bridge é um padrão estrutural que separa uma abstração de sua implementação, permitindo que ambas evoluam independentemente e evitando a explosão de classes causada por combinações via herança.
+
+Participantes:
+
+
+
+Ideia central:
+
+Usar composição em vez de herança
+Delegar o trabalho para o Implementor
+
+
+interface Implementor {
+	void method();
+}
+
+abstract class Abstraction {
+	Implementor implementor;
+
+	Abstraction(Implementor implementor) {
+		this.implementor = implementor;
+	}
+
+	void doSomething() {
+		implementor.method();
+		//Do more things
+	}
+}
+
+
+class ConcreteImplementor1 implements Implementor {
+	void method() {}
+}
+
+class ConcreteImplementor2 implements Implementor {
+	void method() {}
+}
+
+class RefinedAbstraction extends Abstraction {
+	RefinedAbstraction(Implementor implementor) {
+		super(implementor);
+	}
+}	
+
+
+Principais padrões confundidos com Bridge:
+- Adapter
+Por que confunde?
+  Ambos usam composição
+  Ambos têm uma interface
+  Ambos fazem delegação
+
+- Decorator
+Por que confunde?
+  Mesma interface
+  Uso de composição
+  Evita explosão de classes
+
+- Strategy
+Por que confunde?
+  Composição
+  Interface para comportamento
+  Delegação
+
+- Abstract Factory
+Por que confunde?
+  Múltiplas implementações
+  Famílias de objetos
+  Desacoplamento
+
+- Proxy
+Por que confunde?
+  Composição
+  Delegação
+  Mesma interface
+
+Se você vir:
+  - Duas hierarquias
+  - Composição entre elas
+  - Variação independente
+
+=> Pense em Bridge
+
+Mas valide:
+  - Está convertendo interface? → Adapter
+  - Está adicionando comportamento? → Decorator
+  - Está escolhendo algoritmo? → Strategy
+  - Está criando objetos? → Abstract Factory
+  - Está controlando acesso? → Proxy
+
+“Bridge parece vários padrões estruturalmente, mas só ele separa abstração e implementação permitindo variação independente.”
+
+
+API Java:
+
+- JDBC (o melhor exemplo real)
+Connection conn = DriverManager.getConnection(url);
+Statement stmt = conn.createStatement();
+
+| Papel                | Classe                            |
+| -------------------- | --------------------------------- |
+| Abstraction          | Connection, Statement             |
+| Implementor          | Driver                            |
+| Concrete Implementor | MySQL, PostgreSQL, Oracle drivers |
+
+Por que é Bridge?
+- Usa Connection
+- Por baixo, existe um driver específico
+=> Abstração independente da implementação
+
+
+
+

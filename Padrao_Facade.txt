@@ -1,0 +1,120 @@
+Padrão Facade
+
+Padrão estrutural que fornece uma interface simples e unificada para um subsistema complexo, escondendo sua complexidade e reduzindo o acoplamento entre cliente e sistema.
+
+Trade-offs
+Pros:
+- Simplifica o uso de sistemas complexos
+- Reduz acoplamento entre cliente e subsistema
+- Centraliza lógica de orquestração
+- Melhora legibilidade e manutenção
+
+Cons:
+- Pode virar um “God Object” (Facade inchado)
+- Pode esconder funcionalidades importantes
+- Pode adicionar uma camada desnecessária em sistemas simples
+
+Participantes:
+- Facade (Classe principal)
+  Interface simplificada que orquestra o subsistema
+- Subsystem Classes (Classes reais)
+  Implementam a lógica de negócio (não conhecem o Facade)
+- Client
+  Usa o Facade em vez de acessar diretamente o subsistema
+
+Ideia central:
+- Interface simplificada
+- Orquestração de chamadas
+- Encapsulamento da complexidade
+- Não altera comportamento interno
+- Não impede acesso direto ao subsistema
+- Não há wrapping
+- Não há encadeamento
+- Não há mesma interface obrigatória
+
+Estrutura Básica:
+
+class SubsystemA {
+    void operationA() {
+        System.out.println("A");
+    }
+}
+
+class SubsystemB {
+    void operationB() {
+        System.out.println("B");
+    }
+}
+
+class Facade {
+
+    private SubsystemA a;
+    private SubsystemB b;
+
+    public Facade() {
+        this.a = new SubsystemA();
+        this.b = new SubsystemB();
+    }
+
+    public void operation() {
+        a.operationA();
+        b.operationB();
+    }
+}
+
+Uso:
+Facade facade = new Facade();
+facade.operation();
+
+Ideia mental:
+Client → Facade → Subsystems
+Facade = “orquestrador”
+
+“Facade simplifica o uso de um sistema sem mudar sua estrutura interna.”
+
+
+Principais padrões confundidos com Facade:
+- Adapter
+Regra:
+Adapter → muda interface
+Facade → cria uma interface simplificada
+
+- Decorator
+Regra:
+Decorator → adiciona comportamento
+Facade → só simplifica acesso
+
+- Proxy
+Regra:
+Proxy → controla acesso
+Facade → facilita uso
+
+- Mediator
+Regra:
+Mediator → coordena comunicação entre objetos
+Facade → simplifica acesso ao sistema
+
+Se você vir:
+- Várias classes complexas
+- Sequência de chamadas
+- Cliente simplificado
+
+=> Pense em Facade
+
+Mas valide:
+- Está convertendo interface? → Adapter
+- Está adicionando comportamento? → Decorator
+- Está controlando acesso? → Proxy
+- Está centralizando comunicação entre objetos? → Mediator
+
+
+API Java (exemplos reais)
+
+Facade aparece muito mais como conceito arquitetural do que classe explícita.
+
+Exemplos comuns:
+
+javax.faces.context.FacesContext (JSF)
+java.util.logging.Logger (simplifica logging interno)
+APIs de persistência (ex: JPA EntityManager)
+
