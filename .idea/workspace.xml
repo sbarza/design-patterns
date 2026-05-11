@@ -15,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -34,24 +34,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.behavioral.iterator.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.behavioral.observer.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.behavioral.strategy.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.behavioral.strategy.v2_compare_with_method_reference.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.behavioral.template.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jvfmr/OneDrive/Desktop/DesignPatterns/DesignPatterns/src/behavioral/template&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.MainApp.executor": "Run",
+    "Application.behavioral.iterator.MainApp.executor": "Run",
+    "Application.behavioral.observer.MainApp.executor": "Run",
+    "Application.behavioral.state.MainApp.executor": "Run",
+    "Application.behavioral.strategy.MainApp.executor": "Run",
+    "Application.behavioral.strategy.v2_compare_with_method_reference.MainApp.executor": "Run",
+    "Application.behavioral.template.MainApp.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/jvfmr/OneDrive/Desktop/DesignPatterns/DesignPatterns/src/behavioral/template"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="behavioral.state" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jvfmr\OneDrive\Desktop\DesignPatterns\DesignPatterns\src\behavioral\template" />
       <recent name="C:\Users\jvfmr\OneDrive\Desktop\DesignPatterns\DesignPatterns\src\behavioral\strategy\v2_compare_with_method_reference" />
@@ -64,7 +69,7 @@
       <recent name="behavioral.iterator" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainApp">
+  <component name="RunManager" selected="Application.behavioral.state.MainApp">
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="behavioral.memento.MainApp" />
       <module name="DesignPatterns" />
@@ -78,12 +83,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="behavioral.observer.MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="behavioral.observer.MainApp" />
+    <configuration name="behavioral.state.MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="behavioral.state.MainApp" />
       <module name="DesignPatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="behavioral.observer.*" />
+          <option name="PATTERN" value="behavioral.state.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.behavioral.state.MainApp" />
         <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.behavioral.template.MainApp" />
         <item itemvalue="Application.behavioral.strategy.v2_compare_with_method_reference.MainApp" />
         <item itemvalue="Application.behavioral.strategy.v1_compare_with_nested_inner_class.MainApp" />
-        <item itemvalue="Application.behavioral.observer.MainApp" />
       </list>
     </recent_temporary>
   </component>
