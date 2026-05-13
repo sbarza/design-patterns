@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="64d8f509-8d6c-4f57-b7fc-f201bf6d6717" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/behavioral/visitor/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/behavioral/visitor/MainApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +39,7 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Application.MainApp.executor": "Run",
+    "Application.behavioral.command.MainApp.executor": "Run",
     "Application.behavioral.iterator.MainApp.executor": "Run",
     "Application.behavioral.observer.MainApp.executor": "Run",
     "Application.behavioral.state.MainApp.executor": "Run",
@@ -71,7 +73,7 @@
       <recent name="behavioral.iterator" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.behavioral.visitor.MainApp">
+  <component name="RunManager" selected="Application.behavioral.command.MainApp">
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="behavioral.memento.MainApp" />
       <module name="DesignPatterns" />
@@ -85,12 +87,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="behavioral.state.MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="behavioral.state.MainApp" />
+    <configuration name="behavioral.command.MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="behavioral.command.MainApp" />
       <module name="DesignPatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="behavioral.state.*" />
+          <option name="PATTERN" value="behavioral.command.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,12 +100,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="behavioral.strategy.v2_compare_with_method_reference.MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="behavioral.strategy.v2_compare_with_method_reference.MainApp" />
+    <configuration name="behavioral.state.MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="behavioral.state.MainApp" />
       <module name="DesignPatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="behavioral.strategy.v2_compare_with_method_reference.*" />
+          <option name="PATTERN" value="behavioral.state.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.behavioral.command.MainApp" />
         <item itemvalue="Application.behavioral.visitor.MainApp" />
         <item itemvalue="Application.behavioral.state.MainApp" />
         <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.behavioral.template.MainApp" />
-        <item itemvalue="Application.behavioral.strategy.v2_compare_with_method_reference.MainApp" />
       </list>
     </recent_temporary>
   </component>
